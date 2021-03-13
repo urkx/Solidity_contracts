@@ -11,16 +11,6 @@ import "./Ownable.sol";
 contract Storage is Ownable {
 
     uint256 private number;
-    
-    // Implemented in Ownable
-    //address private owner;
-    
-    /**
-     *@dev Implemented in Ownable
-    constructor() {
-        owner = msg.sender;
-    }
-    */
 
     /**
      * @dev Store value in variable
@@ -40,10 +30,33 @@ contract Storage is Ownable {
     }
     
     /**
-        @dev implemented in Ownable
-    modifier isOwner() {
-        require(owner == msg.sender);
-        _;
+     * @dev Return contract balance in wei
+     */
+    function getBalance() public view returns (uint){
+        return address(this).balance;
     }
-    */
+    
+    /**
+     * @dev Return contract balance in ether
+     */
+    function getBalanceInEther() public view returns (uint){
+        return getBalance() / 1e18; // Convert from wei to ether
+    }
+    
+    /**
+     * @dev Transfer an amount in wei to contract owner account. The balance is taken from the contract balance.
+     */ 
+    function transfer(uint amount) public isOwner{
+        require(address(this).balance >= amount);
+        owner.transfer(amount);
+    }
+    
+    /**
+     * @dev Transfer an amount in wei to an account.
+     */ 
+    function transferTo(uint amount, address payable to) public isOwner{
+        require(address(this).balance >= amount);
+        require(to != address(0)); //Check if to account is valid (not empty)
+        to.transfer(amount);
+    }
 }
