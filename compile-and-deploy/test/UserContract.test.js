@@ -36,7 +36,7 @@ describe('The UserContract', async() => {
         let name = "Oscar";
         let surName = "Lopez";
 
-        userContract.methods.join(name, surName)
+        await userContract.methods.join(name, surName)
         .send({from: accounts[0], gas: '1000000'});
 
         let user = await userContract.methods.getUser(accounts[0]).call();
