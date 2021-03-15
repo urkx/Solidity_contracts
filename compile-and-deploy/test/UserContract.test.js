@@ -20,8 +20,28 @@ beforeEach(async() => {
 describe('The UserContract', async() => {
 
     it('should deploy', () => {
-        //console.log(userContract.options.address);
+        console.log(userContract.options.address);
         assert.ok(userContract.options.address);
     });
 
+    it('should join a user', async() => {
+        let name = "Urko";
+        let surName = "Lopez";
+
+        userContract.methods.join(name, surName)
+        .send({from: accounts[0], gas: '1000000'});
+    });
+
+    it('should retrieve a user', async() => {
+        let name = "Oscar";
+        let surName = "Lopez";
+
+        userContract.methods.join(name, surName)
+        .send({from: accounts[0], gas: '1000000'});
+
+        let user = await userContract.methods.getUser(accounts[0]).call();
+
+        assert.strictEqual(name, user[0]);
+        assert.strictEqual(surName, user[1]);
+    });
 });
