@@ -1,6 +1,8 @@
 # Solidity contracts
 
-Some contracts for solidity and ethereum learning
+Some contracts for solidity and ethereum learning.
+
+Use Ganache as test network server.
 
 #### Changelog:
 
