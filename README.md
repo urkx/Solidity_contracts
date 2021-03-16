@@ -4,8 +4,7 @@ Some contracts for solidity and ethereum learning.
 
 Use Ganache as test network server.
 
-#### Changelog:
+Install Truffle globaly from NPM
+> npm install truffle@4.1.15 -g
 
-- 11/03/2021
-    - Storage.sol => Contract for storing a number.
-    - Ownable.sol => Contract that implements owner logic.  
+
