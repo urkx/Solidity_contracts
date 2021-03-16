@@ -63,6 +63,6 @@ describe('The UserContract', async() => {
             }
         }
     });
-
+    //TODO: Test Challenge (Seccion 7 - 49)
     
 });
