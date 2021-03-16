@@ -13,3 +13,9 @@ A kind of sandbox used to learn "low-level" mechanisms of Ethereum and Solidity.
 
 ### ethereum-truffle
 A truffle module.
+
+Compile contracts
+> truffle compile
+
+Deploy contracts in development network
+> truffle deploy --network development
