@@ -1,4 +1,5 @@
 const assert = require('assert');
+const AssertionError = require('assert').AssertionError;
 const Web3 = require('web3');
 
 
@@ -44,4 +45,24 @@ describe('The UserContract', async() => {
         assert.strictEqual(name, user[0]);
         assert.strictEqual(surName, user[1]);
     });
+
+    it('should not allow joining an account twice', async() => {
+        await userContract.methods.join("Urko", "Lopez")
+        .send({from: accounts[1], gas: '1000000'});
+
+        try{
+
+            await userContract.methods.join("Oscar", "Lopez")
+            .send({from: accounts[1], gas: '1000000'});
+
+            assert.fail('Same account cant join twice');
+            
+        } catch(e) {
+            if(e instanceof AssertionError){
+                assert.fail(e.message);
+            }
+        }
+    });
+
+    
 });
