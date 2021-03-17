@@ -19,3 +19,13 @@ Compile contracts
 
 Deploy contracts in development network
 > truffle deploy --network development
+
+Truffle console (in development network)
+> truffle console --network development
+
+Deploy contracts in Ganache again
+> truffle deploy --reset --network development
+
+Get instance of deployed contract to interact with it (in Truffle console)
+> UserContract.deployed().then(c => instance = c);
+> Migrations.deployed().then(c => instance = c);
