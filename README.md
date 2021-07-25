@@ -16,17 +16,27 @@ A kind of sandbox used to learn "low-level" mechanisms of Ethereum and Solidity.
 A truffle module.
 
 Compile contracts
-> truffle compile
+``` console 
+truffle compile 
+```
 
 Deploy contracts in development network
-> truffle deploy --network development
+ ``` console 
+ truffle deploy --network development
+ ```
 
 Truffle console (in development network)
-> truffle console --network development
+``` console
+truffle console --network development
+```
 
 Deploy contracts in Ganache again
-> truffle deploy --reset --network development
+``` console 
+truffle deploy --reset --network development
+```
 
 Get instance of deployed contract to interact with it (in Truffle console)
-> UserContract.deployed().then(c => instance = c);
-> Migrations.deployed().then(c => instance = c);
+``` js 
+UserContract.deployed().then(c => instance = c);
+Migrations.deployed().then(c => instance = c);
+```
