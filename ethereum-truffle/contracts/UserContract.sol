@@ -22,8 +22,6 @@ contract UserContract{
         user.surName = surName;
         joinedUsers[msg.sender] = true;
         total.push(msg.sender);
-
-        onUserJoined(msg.sender, string(abi.encodePacked(name, " ", surName)));
     }
 
     function getUser(address addr) public view returns(string, string){
@@ -39,3 +37,5 @@ contract UserContract{
     function totalUsers() public view returns (uint){
         return total.length;
     }
+
+}
